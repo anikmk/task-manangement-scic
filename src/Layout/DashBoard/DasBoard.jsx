@@ -8,28 +8,20 @@ const DasBoard = () => {
             <div className="w-64 min-h-full bg-orange-400">
                 <ul className="menu">
                     <li>
-                    <NavLink to='/dashboard/allUser'>
-                    All Users
+                    <NavLink to='/dashboard/createNewTask'>
+                    Create New Task
                     </NavLink>
                     </li>
                     <li>
-                    <NavLink to='/dashboard/createNewTask'> 
-                    create task
+                    <NavLink to='/dashboard/seePreviousTask'> 
+                    See Previous Task
                     </NavLink>
                     </li>
+                    
+                   
                     <li>
-                    <NavLink to='/dashboard/manageItems'> 
-                    Manage Items
-                    </NavLink>
-                    </li>
-                    <li>
-                    <NavLink to='/dashboard/bookings'> 
-                    Manage Bookings
-                    </NavLink>
-                    </li>
-                    <li>
-                    <NavLink to='/dashboard/users'>
-                    All users
+                    <NavLink to='/'>
+                    Home
                     </NavLink>
                     </li>
                 </ul>

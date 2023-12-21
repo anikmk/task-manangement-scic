@@ -13,7 +13,7 @@ const NavBar = () => {
     <>
       <li><Link to='/'>Home</Link></li>
       <li><Link>About</Link></li>
-      <li><Link to='/dashboard/allUser'>Dashboard</Link></li>
+      <li><Link to='/dashboard/createNewTask'>Dashboard</Link></li>
     </>
   );
 
