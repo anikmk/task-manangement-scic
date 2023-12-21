@@ -1,15 +1,34 @@
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 
 const Login = () => {
+  const navigate = useNavigate();
+    const {signIn,signInWithGoogle} = useAuth();
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        const data = {email,password}
-        console.log(data)
+        signIn(email,password)
+        .then(result=>{
+          navigate('/dashboard')
+          console.log(result.user)
+        })
+        .catch(error=>{
+          console.log(error.message)
+        })
+    }
+    // sign in with google
+    const logInWithGoogle = () => {
+      signInWithGoogle()
+      .then(result=>{
+        console.log(result.user)
+      })
+      .catch(error=>{
+        console.log(error.message)
+      })
     }
     return (
         <div className='flex justify-center items-center min-h-screen'>
@@ -76,7 +95,7 @@ const Login = () => {
           <div className='flex justify-center items-center space-x-2 border m-3 p-2 border-[#3b2b79ec] border-rounded cursor-pointer hover:bg-[#3b2b79ec] hover:text-white transition-all'>
             <FcGoogle size={32} />
   
-            <p>Continue with Google</p>
+            <button onClick={logInWithGoogle}>Continue with Google</button>
           </div>
           <p className='px-6 text-sm text-center text-[#a2a2a4]'>
             Do not have an account?{' '}

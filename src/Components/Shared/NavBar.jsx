@@ -1,13 +1,19 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const NavBar = () => {
-
-
+  const {user,logOut} = useAuth();
+  const handleLogOut = () => {
+    logOut()
+    .then(()=>{
+      console.log('logout')
+    })
+  }
   const navItems = (
     <>
-      <li><Link>Home</Link></li>
+      <li><Link to='/'>Home</Link></li>
       <li><Link>About</Link></li>
-      <li><Link>Dashboard</Link></li>
+      <li><Link to='/dashboard/allUser'>Dashboard</Link></li>
     </>
   );
 
@@ -22,7 +28,7 @@ const NavBar = () => {
          {navItems}
         </ul>
       </div>
-      <a className="btn btn-ghost text-xl">daisyUI</a>
+      <a className="btn btn-ghost text-xl">Task</a>
     </div>
     <div className="navbar-center hidden lg:flex">
       <ul className="menu menu-horizontal px-1">
@@ -30,9 +36,12 @@ const NavBar = () => {
       </ul>
     </div>
     <div className="navbar-end">
-      <Link to='/signup'>
-      <a className="btn">Register</a>
-      </Link>
+      {
+        user ? <button onClick={handleLogOut} className="bg-[#3b2b79ec] py-3 px-5 text-white font-semibold rounded-lg hover:bg-transparent hover:border hover:text-black hover:border-[#3b2b79ec]">Log Out</button> :
+        <Link to='/signup'>
+        <a className="btn">Register</a>
+        </Link>
+      }
     </div>
   </div>
   );
