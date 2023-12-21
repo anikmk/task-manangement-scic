@@ -1,12 +1,35 @@
 import { useForm } from "react-hook-form";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 
 const CreateNewTask = () => {
-    const { register, handleSubmit } = useForm();
-
+  const {user} = useAuth();
+    const axiosPublic = useAxiosPublic();
+    const { register, handleSubmit,reset } = useForm();
+    
 
   const onSubmit = async(data) => {
-   console.log(data)
+    const createTaskData = {
+         titles: data.titles,
+         type: data.type,
+         priority: data.priority,
+         deadline: data.deadline,
+         descriptions: data.descriptions,
+         email: user?.email
+    }
+    const res = await axiosPublic.post('/createTask',createTaskData)
+    if(res.data.insertedId){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your task has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      reset();
+    }
   };
     return (
         <div>
