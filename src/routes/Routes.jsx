@@ -10,6 +10,7 @@ import SeePreviousTask from "../Page/DashBoard/SeePreviousTask";
 import TaskManage from "../Page/DashBoard/TaskManage";
 import UpdatedTask from "../Page/DashBoard/UpdatedTask";
 import PrivetRoute from "./PrivetRoute";
+import About from "../Page/About/About";
 
 
 export const router = createBrowserRouter([
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
                 path:'/',
                 element:<Home></Home>
             },
+            {
+                path:'/about',
+                element:<About></About>
+            }
         ]
     },
     {
