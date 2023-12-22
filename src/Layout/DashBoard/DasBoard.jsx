@@ -17,8 +17,11 @@ const DasBoard = () => {
                     See Previous Task
                     </NavLink>
                     </li>
-                    
-                   
+                    <li>
+                    <NavLink to='/dashboard/taskManage'> 
+                    Task Management
+                    </NavLink>
+                    </li>
                     <li>
                     <NavLink to='/'>
                     Home

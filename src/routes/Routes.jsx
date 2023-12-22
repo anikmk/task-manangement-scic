@@ -7,6 +7,7 @@ import ErrorPage from "../Page/ErrorPage";
 import DasBoard from "../Layout/DashBoard/DasBoard";
 import CreateNewTask from "../Page/DashBoard/CreateNewTask";
 import SeePreviousTask from "../Page/DashBoard/SeePreviousTask";
+import TaskManage from "../Page/DashBoard/TaskManage";
 
 
 export const router = createBrowserRouter([
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
             {
                 path:'seePreviousTask',
                 element:<SeePreviousTask></SeePreviousTask>
+            },
+            {
+                path:'taskManage',
+                element:<TaskManage></TaskManage>
             }
         ]
     }
