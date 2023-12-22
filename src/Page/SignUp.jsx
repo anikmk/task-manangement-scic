@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { FcGoogle } from 'react-icons/fc'
 import useAuth from '../hooks/useAuth'
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const {createUser} = useAuth();
     const handleSignUp = (e) => {
         e.preventDefault();
@@ -12,6 +13,7 @@ const SignUp = () => {
         createUser(email,password)
         .then(result=>{
           console.log(result.user)
+          navigate('/dashboard')
         })
         .catch(error=>{
           console.log(error.message)

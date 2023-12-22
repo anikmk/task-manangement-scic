@@ -1,11 +1,23 @@
 import { NavLink, Outlet } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 
 
 const DasBoard = () => {
+    const {user} = useAuth();
+    console.log(user.email)
     return (
+        <>
         <div className="flex">
-            <div className="w-64 min-h-full bg-orange-400">
+            <div className="w-64 min-h-full text-white font-medium text-lg bg-[#3b2b79ec]">
+            <div className=" flex text-center items-center justify-center">
+            <div className="">
+                <img className="w-24 m-auto rounded-full" src={user?.photoURL} />
+                <h2 className="font-semibold py-2 text-lg"> {user.displayName} </h2>
+                <h2> {user.email} </h2>
+            </div>
+            
+            </div>
                 <ul className="menu">
                     <li>
                     <NavLink to='/dashboard/createNewTask'>
@@ -35,6 +47,7 @@ const DasBoard = () => {
                 <Outlet></Outlet>
             </div>
         </div>
+        </>
     );
 };
 

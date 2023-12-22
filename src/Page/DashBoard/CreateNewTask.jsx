@@ -107,7 +107,7 @@ const CreateNewTask = () => {
                 placeholder="Enter Task Descriptions...."
               ></textarea>
             </div>
-          <button className="btn mt-4">
+          <button className="bg-[#3b2b79ec] py-3 px-5 text-white font-semibold rounded-lg hover:bg-transparent hover:border hover:text-black hover:border-[#3b2b79ec] mt-4 transition-all">
             Add Task
           </button>
         </form>

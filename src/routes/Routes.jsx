@@ -8,6 +8,8 @@ import DasBoard from "../Layout/DashBoard/DasBoard";
 import CreateNewTask from "../Page/DashBoard/CreateNewTask";
 import SeePreviousTask from "../Page/DashBoard/SeePreviousTask";
 import TaskManage from "../Page/DashBoard/TaskManage";
+import UpdatedTask from "../Page/DashBoard/UpdatedTask";
+import PrivetRoute from "./PrivetRoute";
 
 
 export const router = createBrowserRouter([
@@ -35,7 +37,7 @@ export const router = createBrowserRouter([
     // dashboard
     {
         path:'dashboard',
-        element:<DasBoard></DasBoard>,
+        element:<PrivetRoute><DasBoard></DasBoard></PrivetRoute>,
         children:[
             {
                 path:'createNewTask',
@@ -48,6 +50,10 @@ export const router = createBrowserRouter([
             {
                 path:'taskManage',
                 element:<TaskManage></TaskManage>
+            },
+            {
+                path:'updateTask',
+                element:<UpdatedTask></UpdatedTask>
             }
         ]
     }

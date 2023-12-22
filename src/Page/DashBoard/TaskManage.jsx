@@ -9,13 +9,15 @@ const TaskManage = () => {
     const axiosPublic = useAxiosPublic();
     const [tasks,setTasks] = useState([])
     
+    if(loading){
+        return <div className="progress">loading....</div>
+    }
+    
     axiosPublic.get(`/createTask/${user?.email}`)
     .then(res=>{
         setTasks(res.data)
     })
-    if(loading){
-        return <div className="progress">loading....</div>
-    }
+    
     return (
         <div>
             <div className="overflow-x-auto">

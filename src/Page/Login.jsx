@@ -25,6 +25,7 @@ const Login = () => {
       signInWithGoogle()
       .then(result=>{
         console.log(result.user)
+        navigate('/dashboard')
       })
       .catch(error=>{
         console.log(error.message)

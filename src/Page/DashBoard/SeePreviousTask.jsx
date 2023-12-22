@@ -1,3 +1,4 @@
+import Kanban from "../../Components/Shared/Canban";
 
 
 const SeePreviousTask = () => {
@@ -9,7 +10,7 @@ const SeePreviousTask = () => {
                 <h1 className="font-semibold">COMPLETED</h1>
             </div>
             <div>
-                todo
+                <Kanban></Kanban>
             </div>
         </div>
     );

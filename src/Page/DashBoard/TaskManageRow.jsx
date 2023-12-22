@@ -2,6 +2,7 @@ import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { NavLink } from "react-router-dom";
 const TaskManageRow = ({task}) => {
     const axiosPublic = useAxiosPublic();
 
@@ -37,7 +38,7 @@ const TaskManageRow = ({task}) => {
         <td> {task.descriptions} </td>
         <td> <button onClick={()=>handleDelete(task._id)} className="text-xl text-red-700"><MdDelete /></button> </td>
 
-        <td> <button className="text-xl text-green-900"><FaEdit /></button> </td>
+        <td> <NavLink to='/dashboard/updateTask'><button className="text-xl text-green-900"><FaEdit /></button></NavLink> </td>
       </tr>
         
     );
